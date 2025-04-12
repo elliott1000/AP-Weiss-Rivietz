@@ -12,13 +12,13 @@ def divide(a, b):
         return a / b
     else:
         return "Error: Division by zero is not allowed."
-def historyf():
+def historyf(x):
     print("Calculation History:")
     if len(history) == 0:
         print("No calculations yet.")
         return
     else:
-        for entry in history:
+        for entry in history[-x:]:
             print(entry)
     
 
@@ -27,7 +27,8 @@ history = []
 while True:
     operation = input("Enter the operation (+, -, *, /, or 'history' to view past results): ")
     if operation == 'history':
-       historyf()
+       ammount = int(input("Enter the amount of history to view: "))
+       historyf(ammount)
        continue
 
     num1 = float(input("Enter the first number: "))
